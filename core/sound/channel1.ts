@@ -245,7 +245,7 @@ export class Channel1 {
   // Function to load the save state from memory
   static loadState(): void {
     // Cycle Counter
-    Channel1.cycleCounter = load<i32>(getSaveStateMemoryOffset(0x00, Channel1.cycleCounter));
+    Channel1.cycleCounter = load<i32>(getSaveStateMemoryOffset(0x00, Channel1.saveStateSlot));
 
     // NRx0
     Channel1.NRx0SweepPeriod = load<u8>(getSaveStateMemoryOffset(0x04, Channel1.saveStateSlot));
