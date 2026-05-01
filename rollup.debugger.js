@@ -15,7 +15,6 @@ import postcssImport from 'postcss-import';
 import copy from 'rollup-plugin-copy-glob';
 import del from 'rollup-plugin-delete';
 import hash from 'rollup-plugin-hash';
-import pkg from './package.json';
 
 const fs = require('fs');
 

@@ -2,6 +2,8 @@ import { Cpu } from './index';
 import { u8Portable, u16Portable } from '../portable/portable';
 
 // Set flag bit on on register F. For instance set zero flag to zero -> (7, 0)
+// @ts-ignore: decorator
+@inline
 function setFlagBit(flagBit: u8, flagValue: i32): u8 {
   let bitwiseOperand = u8Portable(1 << flagBit);
   if (flagValue > 0) {
@@ -16,35 +18,51 @@ function setFlagBit(flagBit: u8, flagValue: i32): u8 {
 }
 
 // Overload the set flag bit for ease of use
+// @ts-ignore: decorator
+@inline
 export function setZeroFlag(value: i32): void {
   setFlagBit(7, value);
 }
 
+// @ts-ignore: decorator
+@inline
 export function setSubtractFlag(value: i32): void {
   setFlagBit(6, value);
 }
 
+// @ts-ignore: decorator
+@inline
 export function setHalfCarryFlag(value: i32): void {
   setFlagBit(5, value);
 }
 
+// @ts-ignore: decorator
+@inline
 export function setCarryFlag(value: i32): void {
   setFlagBit(4, value);
 }
 
 // Getters for flags
+// @ts-ignore: decorator
+@inline
 export function getZeroFlag(): u8 {
   return (Cpu.registerF >> 7) & 0x01;
 }
 
+// @ts-ignore: decorator
+@inline
 export function getSubtractFlag(): u8 {
   return (Cpu.registerF >> 6) & 0x01;
 }
 
+// @ts-ignore: decorator
+@inline
 export function getHalfCarryFlag(): u8 {
   return (Cpu.registerF >> 5) & 0x01;
 }
 
+// @ts-ignore: decorator
+@inline
 export function getCarryFlag(): u8 {
   return (Cpu.registerF >> 4) & 0x01;
 }

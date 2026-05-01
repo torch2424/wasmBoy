@@ -3,10 +3,6 @@ import libBundles from './rollup.lib';
 import workerBundles from './rollup.worker';
 import coreTsBundles from './rollup.core';
 import getCoreBundles from './rollup.getcore';
-import debuggerBundles from './rollup.debugger';
-import benchmarkBundles from './rollup.benchmark';
-import ampBundles from './rollup.amp';
-import iframeBundles from './rollup.iframe';
 
 let exports = [];
 
@@ -20,18 +16,22 @@ if (!process.env.SKIP_LIB) {
 }
 
 if (process.env.DEBUGGER) {
+  const { default: debuggerBundles } = require('./rollup.debugger');
   exports = [...exports, ...debuggerBundles];
 }
 
 if (process.env.BENCHMARK) {
+  const { default: benchmarkBundles } = require('./rollup.benchmark');
   exports = [...exports, ...benchmarkBundles];
 }
 
 if (process.env.AMP) {
+  const { default: ampBundles } = require('./rollup.amp');
   exports = [...exports, ...ampBundles];
 }
 
 if (process.env.IFRAME) {
+  const { default: iframeBundles } = require('./rollup.iframe');
   exports = [...exports, ...iframeBundles];
 }
 

@@ -9,10 +9,11 @@ import json from 'rollup-plugin-json';
 import replace from 'rollup-plugin-replace';
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
 import bundleSize from 'rollup-plugin-bundle-size';
-import pkg from './package.json';
 
 // For Worker URL Loading
 const path = require('path');
+const fs = require('fs');
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 // Our final bundles we are generating for the lib
 const libBundles = [];

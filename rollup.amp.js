@@ -7,7 +7,6 @@ import copy from 'rollup-plugin-copy-glob';
 import babel from 'rollup-plugin-babel';
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
 import bundleSize from 'rollup-plugin-bundle-size';
-import pkg from './package.json';
 
 const fs = require('fs');
 
